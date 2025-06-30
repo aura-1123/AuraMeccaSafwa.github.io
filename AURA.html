@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Halaman Interaktif Sederhana</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      transition: background-color 0.3s;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #pesan {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .warna {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin: 10px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #aaa;
+    }
+
+    .warna:hover {
+      border-color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Website Interaktif Sederhana</h2>
+
+  <button id="tombolHalo">Klik untuk Sapa</button>
+  <p id="pesan"></p>
+
+  <h3>Ubah Warna Latar:</h3>
+  <div class="warna" style="background-color: pink;" data-warna="pink"></div>
+  <div class="warna" style="background-color: lightblue;" data-warna="lightblue"></div>
+  <div class="warna" style="background-color: lightgreen;" data-warna="lightgreen"></div>
+
+  <script>
+    // Menampilkan pesan saat tombol diklik
+    const tombol = document.getElementById("tombolHalo");
+    const pesan = document.getElementById("pesan");
+
+    tombol.addEventListener("click", function() {
+      pesan.textContent = "Halo! Ini pesan dari AURA🎉";
+    });
+
+    // Mengubah warna latar saat diklik
+    const warnaPilihan = document.querySelectorAll(".warna");
+    warnaPilihan.forEach(function(el) {
+      el.addEventListener("click", function() {
+        const warna = el.getAttribute("data-warna");
+        document.body.style.backgroundColor = warna;
+      });
+    });
+  </script>
+
+</body>
+</html>
